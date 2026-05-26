@@ -1,0 +1,27 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="NeuroSight.Views.RunView">
+             
+    <Border Background="#1A1A1E" CornerRadius="15" Padding="25">
+        <Grid RowDefinitions="Auto, *, Auto">
+            
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="20">
+                <Button x:Name="BtnStartAI" Content="Start AI Engine" Background="#00E676" Foreground="#121212" FontWeight="Bold" CornerRadius="8" Padding="15,8" Click="BtnStartAI_Click"/>
+                <Button x:Name="BtnStopAI" Content="Stop Engine" Background="#C62828" Foreground="White" CornerRadius="8" Padding="15,8" Click="BtnStopAI_Click"/>
+
+                <Border Background="#0A0A0C" CornerRadius="8" Padding="15,5" Margin="20,0,0,0">
+                    <StackPanel Orientation="Horizontal" Spacing="15">
+                        <TextBlock Text="LIVE TIMER:" Foreground="#888888" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock x:Name="LiveTimerText" Text="00:00" Foreground="#00FF00" FontSize="28" FontFamily="Consolas" FontWeight="Bold" LetterSpacing="3"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <Border Grid.Row="1" Margin="0,20,0,20" Background="#0A0A0C" CornerRadius="10" ClipToBounds="True">
+                <Image x:Name="VideoFeedDisplay" Stretch="Uniform"/>
+            </Border>
+
+            <TextBlock x:Name="StatusText" Grid.Row="2" Text="Ready to run. Waiting for AI initialization..." Foreground="#888888"/>
+        </Grid>
+    </Border>
+</UserControl>

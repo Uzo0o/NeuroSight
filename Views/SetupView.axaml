@@ -5,30 +5,38 @@
     <Border Background="#1A1A1E" CornerRadius="15" Padding="25">
         <Grid RowDefinitions="Auto, *, Auto">
             
-            <!-- Camera Controls -->
             <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="15">
-                <ComboBox x:Name="CameraDropdown" Width="300" PlaceholderText="Select Camera Input" Background="#25252A" CornerRadius="8"/>
-                <Button x:Name="BtnStart" Content="Start Feed" Background="#00E676" Foreground="#121212" FontWeight="Bold" CornerRadius="8" Padding="15,8"/>
-                <Button x:Name="BtnStop" Content="Stop" Background="#C62828" Foreground="White" CornerRadius="8" Padding="15,8"/>
+                <ComboBox x:Name="CameraDropdown" Width="200" PlaceholderText="Select Camera Input" Background="#25252A" CornerRadius="8"/>
+                
+                <Button x:Name="BtnStart" Content="Start Feed" Background="#00E676" Foreground="#121212" FontWeight="Bold" CornerRadius="8" Padding="15,8" Click="BtnStart_Click"/>
+                <Button x:Name="BtnStop" Content="Stop" Background="#C62828" Foreground="White" CornerRadius="8" Padding="15,8" Click="BtnStop_Click"/>
+                
+                <Button x:Name="BtnClear" Content="Clear Regions" Background="#FF9800" Foreground="#121212" FontWeight="Bold" CornerRadius="8" Padding="15,8" Click="BtnClear_Click"/>
+
+                <TextBlock Text="Currently Drawing:" VerticalAlignment="Center" Foreground="#888888" Margin="20,0,0,0"/>
+                <ComboBox x:Name="RegionTypeDropdown" Width="150" SelectedIndex="0" Background="#25252A" CornerRadius="8">
+                    <ComboBoxItem>Timer</ComboBoxItem>
+                    <ComboBoxItem>Home Score</ComboBoxItem>
+                    <ComboBoxItem>Away Score</ComboBoxItem>
+                    <ComboBoxItem>Shot Clock</ComboBoxItem>
+                </ComboBox>
             </StackPanel>
             
-            <!-- Video Preview (We will add the drawing canvas over this later) -->
             <Border Grid.Row="1" Margin="0,20,0,20" Background="#0A0A0C" CornerRadius="10" ClipToBounds="True">
                 <Grid>
-                    <!-- 1. The Live Video Feed -->
                     <Image x:Name="VideoFeedDisplay" Stretch="Uniform"/>
                     
-                    <!-- 2. The Transparent Overlay that catches mouse clicks -->
-                    <!-- Background="Transparent" is REQUIRED, otherwise it won't detect clicks! -->
-                    <Canvas x:Name="DrawCanvas" 
-                            Background="Transparent"
-                            PointerPressed="Canvas_PointerPressed"
-                            PointerMoved="Canvas_PointerMoved"
-                            PointerReleased="Canvas_PointerReleased" />
+                    <Viewbox Stretch="Uniform">
+                        <Canvas x:Name="DrawCanvas" 
+                                Background="Transparent"
+                                Width="1920" Height="1080" 
+                                PointerPressed="Canvas_PointerPressed"
+                                PointerMoved="Canvas_PointerMoved"
+                                PointerReleased="Canvas_PointerReleased" />
+                    </Viewbox>
                 </Grid>
             </Border>
             
-            <!-- Instructions/Status -->
             <TextBlock x:Name="StatusText" Grid.Row="2" Text="Select a camera to begin cropping." Foreground="#888888"/>
         </Grid>
     </Border>

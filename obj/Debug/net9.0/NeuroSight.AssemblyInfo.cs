@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NeuroSight")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c94aa6a49856b099cd62f4ec55e71cba9156b9d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("NeuroSight")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NeuroSight")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
