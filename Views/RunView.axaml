@@ -3,41 +3,33 @@
              x:Class="NeuroSight.Views.RunView">
     <Border Background="#141418" CornerRadius="16" Padding="24">
         <Grid RowDefinitions="Auto,*,Auto">
-
-            <!-- Top Control Bar -->
             <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
                 <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="12">
-                    <Button Content="▶ Start AI" Command="{Binding StartEngineCommand}"
+                    <Button Content="Start AI" Command="{Binding StartEngineCommand}"
                             Background="#00E676" Foreground="#121212" FontWeight="Bold"
                             CornerRadius="8" Padding="16,10" IsEnabled="{Binding !IsRunning}"/>
-                    <Button Content="⏹ Stop" Command="{Binding StopEngineCommand}"
+                    <Button Content="Stop" Command="{Binding StopEngineCommand}"
                             Background="#FF5252" Foreground="White"
                             CornerRadius="8" Padding="16,10" IsEnabled="{Binding IsRunning}"/>
-                    <Button Content="👁 Preview" Command="{Binding TogglePreviewCommand}"
+                    <Button Content="Preview" Command="{Binding TogglePreviewCommand}"
                             Background="#2A2A30" Foreground="#00E676"
                             CornerRadius="8" Padding="16,10"/>
                 </StackPanel>
-
                 <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="12">
-                    <Button Content="📥 Export Log" Command="{Binding ExportLogCommand}"
+                    <Button Content="Export Log" Command="{Binding ExportLogCommand}"
                             Background="#2A2A30" Foreground="White"
                             CornerRadius="8" Padding="12,8"/>
                 </StackPanel>
             </Grid>
 
-            <!-- Main Content: Metrics + Optional Preview -->
             <Grid Grid.Row="1" ColumnDefinitions="300,*" Margin="0,20,0,0">
-
-                <!-- Left: Live Metrics Cards -->
                 <StackPanel Grid.Column="0" Spacing="16">
-
                     <Border Background="#1A1A1E" CornerRadius="12" Padding="20">
                         <StackPanel Spacing="6">
-                            <TextBlock Text="⏱ LIVE TIMER" Foreground="#888" FontSize="11" FontWeight="Bold" LetterSpacing="1"/>
+                            <TextBlock Text="LIVE TIMER" Foreground="#888" FontSize="11" FontWeight="Bold" LetterSpacing="1"/>
                             <TextBlock Text="{Binding TimerValue}" Foreground="#00FF00" FontSize="42" FontFamily="Consolas" FontWeight="Bold"/>
                         </StackPanel>
                     </Border>
-
                     <Border Background="#1A1A1E" CornerRadius="12" Padding="20">
                         <Grid ColumnDefinitions="*,*">
                             <StackPanel Grid.Column="0" Spacing="4">
@@ -50,7 +42,6 @@
                             </StackPanel>
                         </Grid>
                     </Border>
-
                     <Border Background="#1A1A1E" CornerRadius="12" Padding="16">
                         <StackPanel Spacing="4">
                             <TextBlock Text="ENGINE STATUS" Foreground="#888" FontSize="10" FontWeight="Bold"/>
@@ -59,16 +50,14 @@
                     </Border>
                 </StackPanel>
 
-                <!-- Right: Video Preview (collapsible) -->
-                <Border Grid.Column="1" Margin="20,0,0,0" Background="#0A0A0C" 
+                <Border Grid.Column="1" Margin="20,0,0,0" Background="#0A0A0C"
                         CornerRadius="12" ClipToBounds="True"
                         IsVisible="{Binding ShowPreview}">
                     <Image Source="{Binding PreviewBitmap}" Stretch="Uniform"/>
                 </Border>
             </Grid>
 
-            <!-- Bottom Status -->
-            <TextBlock Grid.Row="2" Text="NeuroSight Production Engine v2.0" 
+            <TextBlock Grid.Row="2" Text="NeuroSight Production Engine v2.0"
                        Foreground="#444" FontSize="10" Margin="0,12,0,0"/>
         </Grid>
     </Border>
